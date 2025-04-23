@@ -1,53 +1,348 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O título será definido pelo JavaScript -->
     <title>Exclusão de Conta - Monivalt</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 20px;
             line-height: 1.6;
             background-color: #f4f4f9;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
         h1 {
-            color: #444;
+            font-size: 1.8em;
         }
+
+        h2 {
+            font-size: 1.4em;
+        }
+
+        p,
+        li {
+            color: #555;
+            font-size: 1em;
+        }
+
+        strong {
+            color: #111;
+        }
+
+        ol,
+        ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
         a {
-            color: #1a73e8;
+            color: #007bff;
             text-decoration: none;
+            font-weight: bold;
         }
+
         a:hover {
             text-decoration: underline;
         }
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        .support-email {
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            padding: 8px 12px;
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+        }
+
+        .language-switcher:hover {
+            background-color: #dee2e6;
+        }
+
+        .data-section ul {
+            list-style-type: disc;
+        }
+
+        .data-section li::marker {
+            color: #007bff;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #eee;
+            margin: 25px 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .language-switcher {
+                position: static;
+                /* Remove posicionamento absoluto */
+                margin-bottom: 15px;
+                /* Adiciona espaço abaixo */
+                align-self: flex-end;
+                /* Alinha à direita */
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Solicitação de Exclusão de Conta - Monivalt</h1>
-    <p>Se você deseja excluir sua conta no aplicativo <strong>Monivalt</strong> e todos os dados associados, siga as instruções abaixo:</p>
-    
-    <ol>
-        <li>Acesso aplicativo Monivalt e faça login na sua conta.</li>
-        <li>Vá até as configurações da conta.</li>
-        <li>Selecione a opção "Excluir conta".</li>
-        <li>Confirme sua identidade e siga as instruções na tela.</li>
-    </ol>
+    <button id="language-toggle-button" class="language-switcher" onclick="toggleLanguage()">
+        <!-- Texto será atualizado pelo JS -->
+    </button>
 
-    <p>Se você encontrar problemas ou precisar de assistência, entre em contato com nosso suporte pelo email:</p>
-    <p><a href="mailto:suporte.monivalt@gmail.com">suporte.monivalt@gmail.com</a></p>
-</div>
+    <div class="container" id="content">
+        <h1 data-translate="title">Solicitação de Exclusão de Conta - Monivalt</h1>
+
+        <p data-translate="intro">Se você deseja excluir permanentemente sua conta no aplicativo
+            <strong>Monivalt</strong> e todos os dados associados armazenados em nossos sistemas ativos, siga as
+            instruções abaixo. A exclusão da conta é irreversível.
+        </p>
+
+        <h2 data-translate="stepsTitle">Como solicitar a exclusão da sua conta:</h2>
+        <ol>
+            <li data-translate="step1">Acesse o aplicativo Monivalt e faça login na sua conta.</li>
+            <li data-translate="step2">Navegue até a tela de 'Ajustes' ou 'Configurações' da sua conta.</li>
+            <li data-translate="step3">Procure e selecione a opção "Deletar Conta".</li>
+            <li data-translate="step4">Você precisará confirmar sua identidade (geralmente reinserindo sua senha ou via
+                autenticação Google) e seguir as instruções finais na tela para confirmar a exclusão.</li>
+        </ol>
+
+        <hr>
+
+        <div class="data-section">
+            <h2 data-translate="deletedDataTitle">Quais dados são excluídos?</h2>
+            <p data-translate="deletedDataIntro">Ao confirmar a exclusão da sua conta através do aplicativo, os
+                seguintes tipos de dados associados a você serão permanentemente removidos de nossos bancos de dados
+                ativos:</p>
+            <ul>
+                <li data-translate="deletedData1"><strong>Informações de Identificação e Perfil:</strong> Seu nome de
+                    usuário, endereço de e-mail, ID do Google (se aplicável), hash da senha, código e contagem de
+                    referências, e URL da imagem de perfil (o arquivo em si é tratado separadamente, veja abaixo).</li>
+                <li data-translate="deletedData2"><strong>Dados Financeiros de Planejamento:</strong> Todas as
+                    categorias (receitas e despesas), itens/subcategorias, orçamentos e limites que você configurou.
+                </li>
+                <li data-translate="deletedData3"><strong>Dados Financeiros Registrados:</strong> Todo o histórico de
+                    transações (lançamentos reais de receitas e despesas) que você inseriu, incluindo datas, valores e
+                    recorrências.</li>
+                <li data-translate="deletedData4"><strong>Dados de Objetivos Financeiros:</strong> Todos os objetivos
+                    que você criou (nome, valores, imagens associadas, etc.), seu status de participação em objetivos
+                    compartilhados (incluindo permissões e contribuições), convites pendentes relacionados a objetivos e
+                    o histórico de alterações desses objetivos.</li>
+                <li data-translate="deletedData5"><strong>Dados de Gamificação:</strong> Seu progresso de XP, nível,
+                    histórico de missões completas ou em andamento e todos os emblemas (badges) desbloqueados.</li>
+                <li data-translate="deletedData6"><strong>Dados Sociais e de Interação:</strong> Suas conexões de
+                    amizade, convites de amizade pendentes, todos os posts criados no feed, comentários, reações,
+                    mensagens diretas trocadas, desafios em grupo criados ou participados, e votos em enquetes.</li>
+                <li data-translate="deletedData7"><strong>Dados de Assinatura (no nosso sistema):</strong> O status de
+                    usuário Premium, o token de assinatura do Google Play e a data de expiração associada (seu histórico
+                    de compras permanece no Google Play).</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="data-section">
+            <h2 data-translate="retainedDataTitle">Quais dados podem ser mantidos?</h2>
+            <p data-translate="retainedDataIntro">Embora nosso objetivo seja excluir todos os seus dados pessoais de
+                nossos sistemas ativos, alguns dados podem ser retidos temporária ou permanentemente por razões
+                específicas, geralmente de forma anônima ou agregada:</p>
+            <ul>
+                <li data-translate="retainedData1"><strong>Arquivos de Imagem Carregados:</strong> As imagens que você
+                    enviou para seu perfil ou para seus objetivos são armazenadas em nosso sistema de arquivos do
+                    servidor. Embora a referência a elas seja excluída do banco de dados, os arquivos em si podem não
+                    ser imediatamente deletados e podem permanecer em nossos servidores por um período limitado antes da
+                    limpeza programada.</li>
+                <li data-translate="retainedData2"><strong>Dados Analíticos Anônimos:</strong> Podemos reter dados
+                    agregados e anônimos sobre o uso geral do aplicativo (coletados via Firebase Analytics ou similar)
+                    para fins de análise estatística, relatório de bugs e melhoria do serviço. Esses dados não podem ser
+                    usados para identificar você pessoalmente.</li>
+                <li data-translate="retainedData3"><strong>Backups do Banco de Dados:</strong> Nossos bancos de dados
+                    são regularmente copiados para fins de recuperação de desastres. Seus dados podem permanecer nesses
+                    backups por um período limitado (geralmente <span data-translate="backupDays">até 90 dias</span>)
+                    após a exclusão da sua conta ativa. Esses backups não são usados para operações normais do
+                    aplicativo.</li>
+                <li data-translate="retainedData4"><strong>Registros do Servidor:</strong> Logs técnicos do servidor
+                    (que podem incluir endereços IP ou identificadores temporários) podem ser mantidos por um curto
+                    período para fins de segurança, diagnóstico e conformidade legal.</li>
+                <li data-translate="retainedData5"><strong>Histórico de Compras (Google Play):</strong> O registro de
+                    que você comprou uma assinatura (se aplicável) é mantido pelo Google Play de acordo com as políticas
+                    deles e não é controlado por nós.</li>
+                <li data-translate="retainedData6"><strong>Dados de Interação com Anúncios:</strong> Informações sobre
+                    como você interagiu com anúncios (se aplicável no plano gratuito) são coletadas e gerenciadas pela
+                    plataforma de anúncios (Google AdMob) de acordo com suas políticas.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <p data-translate="supportIntro">Se você encontrar problemas durante o processo de exclusão ou tiver qualquer
+            dúvida sobre seus dados, por favor, entre em contato com nosso suporte pelo email:</p>
+        <p><a href="mailto:suporte.monivalt@gmail.com" class="support-email"
+                data-translate="supportEmail">suporte.monivalt@gmail.com</a></p>
+    </div>
+
+    <script>
+        const translations = {
+            'pt': {
+                title: "Solicitação de Exclusão de Conta - Monivalt",
+                intro: "Se você deseja excluir permanentemente sua conta no aplicativo <strong>Monivalt</strong> e todos os dados associados armazenados em nossos sistemas ativos, siga as instruções abaixo. A exclusão da conta é irreversível.",
+                stepsTitle: "Como solicitar a exclusão da sua conta:",
+                step1: "Acesse o aplicativo Monivalt e faça login na sua conta.",
+                step2: "Navegue até a tela de 'Ajustes' ou 'Configurações' da sua conta.",
+                step3: "Procure e selecione a opção \"Deletar Conta\".",
+                step4: "Você precisará confirmar sua identidade (geralmente reinserindo sua senha ou via autenticação Google) e seguir as instruções finais na tela para confirmar a exclusão.",
+                deletedDataTitle: "Quais dados são excluídos?",
+                deletedDataIntro: "Ao confirmar a exclusão da sua conta através do aplicativo, os seguintes tipos de dados associados a você serão permanentemente removidos de nossos bancos de dados ativos:",
+                deletedData1: "<strong>Informações de Identificação e Perfil:</strong> Seu nome de usuário, endereço de e-mail, ID do Google (se aplicável), hash da senha, código e contagem de referências, e URL da imagem de perfil (o arquivo em si é tratado separadamente, veja abaixo).",
+                deletedData2: "<strong>Dados Financeiros de Planejamento:</strong> Todas as categorias (receitas e despesas), itens/subcategorias, orçamentos e limites que você configurou.",
+                deletedData3: "<strong>Dados Financeiros Registrados:</strong> Todo o histórico de transações (lançamentos reais de receitas e despesas) que você inseriu, incluindo datas, valores e recorrências.",
+                deletedData4: "<strong>Dados de Objetivos Financeiros:</strong> Todos os objetivos que você criou (nome, valores, imagens associadas, etc.), seu status de participação em objetivos compartilhados (incluindo permissões e contribuições), convites pendentes relacionados a objetivos e o histórico de alterações desses objetivos.",
+                deletedData5: "<strong>Dados de Gamificação:</strong> Seu progresso de XP, nível, histórico de missões completas ou em andamento e todos os emblemas (badges) desbloqueados.",
+                deletedData6: "<strong>Dados Sociais e de Interação:</strong> Suas conexões de amizade, convites de amizade pendentes, todos os posts criados no feed, comentários, reações, mensagens diretas trocadas, desafios em grupo criados ou participados, e votos em enquetes.",
+                deletedData7: "<strong>Dados de Assinatura (no nosso sistema):</strong> O status de usuário Premium, o token de assinatura do Google Play e a data de expiração associada (seu histórico de compras permanece no Google Play).",
+                retainedDataTitle: "Quais dados podem ser mantidos?",
+                retainedDataIntro: "Embora nosso objetivo seja excluir todos os seus dados pessoais de nossos sistemas ativos, alguns dados podem ser retidos temporária ou permanentemente por razões específicas, geralmente de forma anônima ou agregada:",
+                retainedData1: "<strong>Arquivos de Imagem Carregados:</strong> As imagens que você enviou para seu perfil ou para seus objetivos são armazenadas em nosso sistema de arquivos do servidor. Embora a referência a elas seja excluída do banco de dados, os arquivos em si podem não ser imediatamente deletados e podem permanecer em nossos servidores por um período limitado antes da limpeza programada.",
+                retainedData2: "<strong>Dados Analíticos Anônimos:</strong> Podemos reter dados agregados e anônimos sobre o uso geral do aplicativo (coletados via Firebase Analytics ou similar) para fins de análise estatística, relatório de bugs e melhoria do serviço. Esses dados não podem ser usados para identificar você pessoalmente.",
+                retainedData3: "<strong>Backups do Banco de Dados:</strong> Nossos bancos de dados são regularmente copiados para fins de recuperação de desastres. Seus dados podem permanecer nesses backups por um período limitado (geralmente até 90 dias) após a exclusão da sua conta ativa. Esses backups não são usados para operações normais do aplicativo.",
+                retainedData4: "<strong>Registros do Servidor:</strong> Logs técnicos do servidor (que podem incluir endereços IP ou identificadores temporários) podem ser mantidos por um curto período para fins de segurança, diagnóstico e conformidade legal.",
+                retainedData5: "<strong>Histórico de Compras (Google Play):</strong> O registro de que você comprou uma assinatura (se aplicável) é mantido pelo Google Play de acordo com as políticas deles e não é controlado por nós.",
+                retainedData6: "<strong>Dados de Interação com Anúncios:</strong> Informações sobre como você interagiu com anúncios (se aplicável no plano gratuito) são coletadas e gerenciadas pela plataforma de anúncios (Google AdMob) de acordo com suas políticas.",
+                supportIntro: "Se você encontrar problemas durante o processo de exclusão ou tiver qualquer dúvida sobre seus dados, por favor, entre em contato com nosso suporte pelo email:",
+                supportEmail: "suporte.monivalt@gmail.com",
+                toggleButtonText: "Switch to English",
+                backupDays: "até 90 dias"
+            },
+            'en': {
+                title: "Account Deletion Request - Monivalt",
+                intro: "If you wish to permanently delete your account in the <strong>Monivalt</strong> application and all associated data stored in our active systems, please follow the instructions below. Account deletion is irreversible.",
+                stepsTitle: "How to request your account deletion:",
+                step1: "Access the Monivalt application and log in to your account.",
+                step2: "Navigate to the 'Settings' or 'Account Settings' screen.",
+                step3: "Look for and select the \"Delete Account\" option.",
+                step4: "You will need to confirm your identity (usually by re-entering your password or via Google authentication) and follow the final on-screen instructions to confirm the deletion.",
+                deletedDataTitle: "What data is deleted?",
+                deletedDataIntro: "Upon confirming your account deletion through the app, the following types of data associated with you will be permanently removed from our active databases:",
+                deletedData1: "<strong>Identification and Profile Information:</strong> Your username, email address, Google ID (if applicable), password hash, referral code and count, and profile image URL (the file itself is handled separately, see below).",
+                deletedData2: "<strong>Financial Planning Data:</strong> All categories (income and expenses), items/subcategories, budgets, and limits you have configured.",
+                deletedData3: "<strong>Recorded Financial Data:</strong> Your entire history of transactions (actual income and expense entries) that you have entered, including dates, amounts, and recurrences.",
+                deletedData4: "<strong>Financial Goals Data:</strong> All goals you created (name, values, associated images, etc.), your participation status in shared goals (including permissions and contributions), pending goal-related invitations, and the change history of these goals.",
+                deletedData5: "<strong>Gamification Data:</strong> Your XP progress, level, history of completed or ongoing missions, and all unlocked badges.",
+                deletedData6: "<strong>Social and Interaction Data:</strong> Your friendship connections, pending friend invites, all posts created in the feed, comments, reactions, direct messages exchanged, group challenges created or participated in, and poll votes.",
+                deletedData7: "<strong>Subscription Data (in our system):</strong> Your Premium user status, Google Play subscription token, and associated expiration date (your purchase history remains with Google Play).",
+                retainedDataTitle: "What data may be retained?",
+                retainedDataIntro: "While our goal is to delete all your personal data from our active systems, some data may be retained temporarily or permanently for specific reasons, usually in an anonymous or aggregated form:",
+                retainedData1: "<strong>Uploaded Image Files:</strong> Images you uploaded for your profile or goals are stored on our server's file system. Although the database reference to them is deleted, the files themselves may not be immediately deleted and might remain on our servers for a limited period before scheduled cleanup.",
+                retainedData2: "<strong>Anonymous Analytical Data:</strong> We may retain aggregated and anonymous data about general application usage (collected via Firebase Analytics or similar) for statistical analysis, bug reporting, and service improvement purposes. This data cannot be used to personally identify you.",
+                retainedData3: "<strong>Database Backups:</strong> Our databases are regularly backed up for disaster recovery purposes. Your data may remain in these backups for a limited period (typically up to 90 days) after your active account is deleted. These backups are not used for normal application operations.",
+                retainedData4: "<strong>Server Logs:</strong> Technical server logs (which may include IP addresses or temporary identifiers) might be kept for a short period for security, diagnostics, and legal compliance.",
+                retainedData5: "<strong>Purchase History (Google Play):</strong> The record that you purchased a subscription (if applicable) is maintained by Google Play according to their policies and is not controlled by us.",
+                retainedData6: "<strong>Ad Interaction Data:</strong> Information about how you interacted with ads (if applicable in the free plan) is collected and managed by the advertising platform (Google AdMob) according to their policies.",
+                supportIntro: "If you encounter problems during the deletion process or have any questions about your data, please contact our support via email:",
+                supportEmail: "suporte.monivalt@gmail.com",
+                toggleButtonText: "Mudar para Português",
+                backupDays: "up to 90 days"
+            }
+        };
+
+        let currentLanguage = localStorage.getItem('preferredLanguage') || 'pt';
+        const toggleButton = document.getElementById('language-toggle-button');
+        const contentDiv = document.getElementById('content');
+
+        function setLanguage(lang) {
+            if (!translations[lang]) return; // Safety check
+
+            currentLanguage = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            document.documentElement.lang = lang; // Update html lang attribute
+            document.title = translations[lang].title; // Update page title
+
+            // Update button text
+            toggleButton.textContent = translations[lang].toggleButtonText;
+
+            // Update all elements with data-translate attribute
+            const elements = contentDiv.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (key && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key]; // Use innerHTML to support <strong> tags etc.
+                }
+            });
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLanguage === 'pt' ? 'en' : 'pt';
+            setLanguage(newLang);
+        }
+
+        // Initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLanguage);
+        });
+
+    </script>
 
 </body>
+
 </html>
