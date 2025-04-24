@@ -1,166 +1,717 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 
 <head>
   <meta charset="UTF-8">
-  <title>Política de Privacidade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- O título será definido pelo JavaScript -->
+  <title>Política de Privacidade - Monivalt</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      margin: 0;
+      padding: 20px;
       line-height: 1.6;
+      background-color: #f8f9fa;
+      /* Slightly different background */
+      color: #343a40;
+      /* Darker text */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 800px;
+      /* Wider for policy text */
+      width: 100%;
+      margin: 20px auto 40px auto;
+      /* More bottom margin */
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e9ecef;
     }
 
     h1,
     h2,
     h3 {
-      color: #333;
+      color: #212529;
+      /* Even darker headings */
+      margin-top: 25px;
+      margin-bottom: 15px;
     }
 
-    hr {
-      margin: 20px 0;
+    h1 {
+      font-size: 2em;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 10px;
     }
 
-    .updated-date {
-      color: #666;
+    h2 {
+      font-size: 1.6em;
+      border-bottom: 1px solid #e9ecef;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 1.3em;
+      color: #495057;
+    }
+
+    p,
+    li {
+      color: #495057;
+      /* Slightly lighter text */
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    strong {
+      color: #212529;
+      font-weight: 600;
+      /* Semibold */
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    ul ul {
+      list-style-type: circle;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    li::marker {
+      color: #007bff;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-email {
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    .language-switcher {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      padding: 8px 12px;
+      background-color: #e9ecef;
+      color: #495057;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      cursor: pointer;
       font-size: 0.9em;
+      transition: background-color 0.2s;
+      z-index: 10;
+      /* Ensure it's above content */
+    }
+
+    .language-switcher:hover {
+      background-color: #dee2e6;
+    }
+
+    .last-updated {
+      font-size: 0.9em;
+      color: #6c757d;
+      margin-bottom: 20px;
+      display: block;
+      text-align: center;
+    }
+
+    .toc {
+      /* Table of Contents styling */
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #e9ecef;
+    }
+
+    .toc h3 {
+      margin-top: 0;
+      border-bottom: none;
+    }
+
+    .toc ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .toc li a {
+      font-weight: normal;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.7em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      h3 {
+        font-size: 1.2em;
+      }
+
+      .language-switcher {
+        position: static;
+        margin-bottom: 15px;
+        align-self: flex-end;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>Política de Privacidade</h1>
-  <p class="updated-date">Última atualização: 23/04/2025</p>
 
-  <p>
-    Nós, <strong>Quantyra</strong>, respeitamos a privacidade dos nossos usuários e estamos comprometidos em proteger os
-    dados pessoais fornecidos durante o uso do nosso aplicativo. Esta Política de Privacidade explica como coletamos,
-    usamos, armazenamos e protegemos suas informações.
-  </p>
-  <p>
-    Como grupo desenvolvedor pessoa física, e não como empresa, reforçamos nosso compromisso com a transparência e a proteção
-    dos dados dos nossos usuários.
-  </p>
+  <button id="language-toggle-button" class="language-switcher" onclick="toggleLanguage()">
+    <!-- Texto será atualizado pelo JS -->
+  </button>
 
-  <hr>
+  <div class="container" id="content">
+    <h1 data-translate="policyTitle">Política de Privacidade - Monivalt</h1>
+    <span class="last-updated" data-translate="lastUpdated">Última atualização: 23 de Abril de 2025</span>
 
-  <h2>1. Informações Coletadas</h2>
-  <p>
-    Ao utilizar o nosso aplicativo, coletamos as seguintes informações pessoais para fins de registro e funcionamento da
-    conta:
-  </p>
-  <ul>
-    <li><strong>Endereço de e-mail</strong> – Usado para identificação e comunicação com o usuário.</li>
-    <li><strong>Senha</strong> – Escolhida pelo usuário para acessar o aplicativo.</li>
-  </ul>
-  <p>
-    Todas as informações coletadas são mantidas de forma segura e utilizadas apenas para os fins descritos nesta
-    política.
-  </p>
+    <!-- Tabela de Conteúdos (Opcional, mas bom para políticas longas) -->
+    <div class="toc">
+      <h3 data-translate="tocTitle">Navegação Rápida</h3>
+      <ul>
+        <li><a href="#introduction" data-translate="tocIntro">1. Introdução</a></li>
+        <li><a href="#dataCollected" data-translate="tocDataCollected">2. Informações que Coletamos</a></li>
+        <li><a href="#dataUsage" data-translate="tocDataUsage">3. Como Usamos Suas Informações</a></li>
+        <li><a href="#dataSharing" data-translate="tocDataSharing">4. Como Compartilhamos Suas Informações</a></li>
+        <li><a href="#dataSecurity" data-translate="tocDataSecurity">5. Segurança dos Dados</a></li>
+        <li><a href="#dataRetention" data-translate="tocDataRetention">6. Retenção dos Dados</a></li>
+        <li><a href="#userRights" data-translate="tocUserRights">7. Seus Direitos e Escolhas</a></li>
+        <li><a href="#thirdParty" data-translate="tocThirdParty">8. Serviços de Terceiros</a></li>
+        <li><a href="#children" data-translate="tocChildren">9. Privacidade Infantil</a></li>
+        <li><a href="#changes" data-translate="tocChanges">10. Alterações nesta Política</a></li>
+        <li><a href="#contact" data-translate="tocContact">11. Contato</a></li>
+      </ul>
+    </div>
 
-  <hr>
+    <section id="introduction">
+      <h2 data-translate="introTitle">1. Introdução</h2>
+      <p data-translate="introText1">Bem-vindo ao <strong>Monivalt</strong>! Esta Política de Privacidade descreve como
+        <strong>Quantyra</strong> ("nós", "nosso" ou "Desenvolvedor") coleta, usa, compartilha e protege as informações
+        dos usuários ("você") de nosso aplicativo móvel Monivalt ("Aplicativo"). Nosso compromisso é proteger sua
+        privacidade e garantir a transparência sobre como seus dados são tratados.</p>
+      <p data-translate="introText2">Ao usar o Aplicativo, você concorda com a coleta, uso e compartilhamento de suas
+        informações conforme descrito nesta Política de Privacidade.</p>
+    </section>
 
-  <h2>2. Uso das Informações</h2>
-  <p>
-    As informações fornecidas por você serão utilizadas exclusivamente para os seguintes fins:
-  </p>
-  <ul>
-    <li>Criar e gerenciar sua conta no aplicativo.</li>
-    <li>Garantir o acesso seguro e autenticado ao aplicativo.</li>
-    <li>Entrar em contato com você para fornecer suporte, atualizações e informações importantes sobre o funcionamento
-      do aplicativo.</li>
-  </ul>
-  <p>
-    As informações não serão utilizadas para fins de marketing ou qualquer outra finalidade que não tenha sido
-    expressamente informada nesta política.
-  </p>
+    <section id="dataCollected">
+      <h2 data-translate="collectTitle">2. Informações que Coletamos</h2>
+      <p data-translate="collectIntro">Coletamos diferentes tipos de informações para fornecer e melhorar nosso
+        Aplicativo. Os tipos de dados coletados incluem:</p>
+      <ul>
+        <li>
+          <strong data-translate="collectPersonalTitle">Informações Pessoais e de Conta:</strong>
+          <ul>
+            <li data-translate="collectPersonal1"><strong>Nome:</strong> Seu nome de usuário ou nome de exibição
+              fornecido no perfil.</li>
+            <li data-translate="collectPersonal2"><strong>Endereço de E-mail:</strong> Usado para criação da conta,
+              login, recuperação de senha e comunicações essenciais.</li>
+            <li data-translate="collectPersonal3"><strong>IDs de Usuários:</strong> Um ID interno gerado pelo nosso
+              sistema para sua conta e, se você usar o login social, seu ID do Google.</li>
+            <li data-translate="collectPersonal4"><strong>Senha (Hash):</strong> Sua senha é armazenada de forma segura
+              usando técnicas de hashing e não pode ser lida por nós.</li>
+          </ul>
+        </li>
+        <li>
+          <strong data-translate="collectFinancialTitle">Informações Financeiras (Inseridas por Você):</strong>
+          <ul>
+            <li data-translate="collectFinancial1"><strong>Dados de Planejamento e Orçamento:</strong> Nomes de
+              categorias, tipos (receita/despesa), limites de orçamento, nomes e valores de itens/subcategorias
+              planejados, frequência mensal, etc.</li>
+            <li data-translate="collectFinancial2"><strong>Registros de Transações Reais:</strong> Detalhes dos
+              lançamentos que você registra, como nome, valor, tipo, data/hora.</li>
+            <li data-translate="collectFinancial3"><strong>Dados de Objetivos/Metas:</strong> Nomes das metas, valores
+              totais e atuais, contribuições, prazos, taxas de juros (se informadas).</li>
+            <li data-translate="collectFinancial4"><strong>Nota:</strong> O Monivalt não se conecta a instituições
+              bancárias; todas as informações financeiras são inseridas manualmente por você.</li>
+          </ul>
+        </li>
+        <li>
+          <strong data-translate="collectPurchaseTitle">Histórico de Compras (Assinatura):</strong>
+          <ul>
+            <li data-translate="collectPurchase1">Coletamos e verificamos o token de compra fornecido pelo Google Play
+              para gerenciar seu status de assinatura Premium. Não processamos diretamente pagamentos ou armazenamos
+              detalhes de cartão de crédito.</li>
+          </ul>
+        </li>
+        <li>
+          <strong data-translate="collectMessagesTitle">Mensagens:</strong>
+          <ul>
+            <li data-translate="collectMessages1"><strong>E-mails:</strong> Coletamos seu e-mail para enviar
+              comunicações necessárias, como recuperação de senha.</li>
+            <li data-translate="collectMessages2"><strong>Outras Mensagens no App (Opcional):</strong> Mensagens que
+              você envia nos chats de objetivos compartilhados ou em chats diretos com amigos. O uso dessas
+              funcionalidades é opcional.</li>
+          </ul>
+        </li>
+        <li>
+          <strong data-translate="collectPhotosTitle">Fotos (Opcional):</strong>
+          <ul>
+            <li data-translate="collectPhotos1">Se você optar por fazer upload, coletamos a imagem do seu perfil e
+              imagens associadas aos seus objetivos financeiros.</li>
+          </ul>
+        </li>
+        <li>
+          <strong data-translate="collectContactsTitle">Contatos (Opcional):</strong>
+          <ul>
+            <li data-translate="collectContacts1">Se você usar a função "Sincronizar Contatos" na seção social e
+              conceder permissão, acessaremos informações da sua lista de contatos (como nomes, emails, telefones) para
+              ajudá-lo a encontrar amigos que também usam o Monivalt. Esta coleta é opcional.</li>
+          </ul>
+        </li>
+        <li>
+          <strong data-translate="collectActivityTitle">Atividade e Uso do App:</strong>
+          <ul>
+            <li data-translate="collectActivity1"><strong>Interações no App:</strong> Informações sobre como você usa o
+              aplicativo, como recursos acessados, botões clicados, progresso em missões e emblemas, reações e votos em
+              posts/enquetes.</li>
+            <li data-translate="collectActivity2"><strong>Histórico de Pesquisa no App (Opcional):</strong> Termos que
+              você pesquisa na seção social para encontrar outros usuários.</li>
+            <li data-translate="collectActivity3"><strong>Outro Conteúdo Gerado pelo Usuário:</strong> Posts que você
+              cria no feed social, comentários, nomes que você define para categorias, transações e metas, mensagens de
+              chat.</li>
+            <li data-translate="collectActivity4"><strong>Outras Ações:</strong> Ações como adicionar amigos, participar
+              de desafios, etc.</li>
+          </ul>
+        </li>
+        <li>
+          <strong data-translate="collectDeviceTitle">Identificadores do Dispositivo e Outros IDs:</strong>
+          <ul>
+            <li data-translate="collectDevice1">Coletamos identificadores relacionados ao seu dispositivo ou instância
+              do aplicativo, como o ID de Publicidade do Android (GAID) e o ID de Instalação do Firebase. Isso é feito
+              principalmente por meio de serviços de terceiros que utilizamos (veja Seção 8).</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
 
-  <hr>
+    <section id="dataUsage">
+      <h2 data-translate="usageTitle">3. Como Usamos Suas Informações</h2>
+      <p data-translate="usageIntro">Utilizamos as informações coletadas para diversas finalidades:</p>
+      <ul>
+        <li data-translate="usageFunc"><strong>Funcionalidade do App:</strong> Para operar e fornecer os recursos
+          principais do Monivalt, como registrar e exibir suas finanças, calcular saldos, acompanhar o progresso das
+          metas, permitir interações sociais (chats, posts, amigos, etc.) e gerenciar sua conta.</li>
+        <li data-translate="usageAccount"><strong>Gerenciamento de Contas:</strong> Para criar sua conta, permitir o
+          login (incluindo via Google), verificar credenciais e facilitar a recuperação de senha.</li>
+        <li data-translate="usageComms"><strong>Comunicações:</strong> Para enviar e-mails necessários (como recuperação
+          de senha) ou notificações importantes sobre sua conta ou o serviço.</li>
+        <li data-translate="usageAnalytics"><strong>Análise:</strong> Para entender como os usuários interagem com o
+          Aplicativo, monitorar o desempenho, diagnosticar problemas técnicos, identificar tendências de uso e melhorar
+          nossos serviços (geralmente usando dados agregados ou anônimos e identificadores via Firebase Analytics).</li>
+        <li data-translate="usageAds"><strong>Publicidade ou Marketing (Plano Gratuito):</strong> Para exibir anúncios
+          relevantes no aplicativo através de redes como o Google AdMob, utilizando Identificadores de Dispositivo.
+          Usuários Premium não veem anúncios.</li>
+        <li data-translate="usageSecurity"><strong>Segurança e Conformidade:</strong> Para proteger a segurança do
+          Aplicativo e dos nossos usuários, prevenir fraudes e cumprir obrigações legais.</li>
+        <li data-translate="usagePersonalization"><strong>Personalização (Limitada):</strong> Para exibir seu nome de
+          usuário e foto de perfil, e permitir que você personalize suas metas com imagens. Não usamos seus dados
+          financeiros para personalização de conteúdo externo.</li>
+      </ul>
+    </section>
 
-  <h2>3. Segurança das Informações</h2>
-  <p>
-    Adotamos medidas técnicas e organizacionais para garantir a segurança e integridade das informações fornecidas:
-  </p>
-  <ul>
-    <li><strong>Senhas criptografadas</strong> – As senhas são armazenadas utilizando algoritmos de hash, o que
-      significa que nem mesmo nós temos acesso ao conteúdo original da senha.</li>
-    <li><strong>Proteção de dados</strong> – Utilizamos medidas de segurança para proteger as informações contra acessos
-      não autorizados, vazamentos ou perdas.</li>
-    <li><strong>Acesso restrito</strong> – Somente o desenvolvedor tem acesso às informações, sendo que esse acesso é
-      limitado e controlado.</li>
-  </ul>
+    <section id="dataSharing">
+      <h2 data-translate="sharingTitle">4. Como Compartilhamos Suas Informações</h2>
+      <p data-translate="sharingIntro">Nós **não vendemos** suas informações pessoais. No entanto, podemos compartilhar
+        certas informações com terceiros nas seguintes circunstâncias:</p>
+      <ul>
+        <li data-translate="sharingAds"><strong>Parceiros de Publicidade (Ex: Google AdMob):</strong> Se você utiliza a
+          versão gratuita do Aplicativo, compartilhamos **Identificadores de Dispositivo e outros IDs** com redes de
+          publicidade como o Google AdMob para exibir anúncios relevantes. Você pode ter opções para limitar o
+          rastreamento de anúncios nas configurações do seu dispositivo móvel.</li>
+        <li data-translate="sharingAnalytics"><strong>Provedores de Análise (Ex: Firebase Analytics):</strong>
+          Compartilhamos dados de uso e identificadores com provedores como o Firebase Analytics, que nos ajudam a
+          entender como o Aplicativo é usado e a aprimorá-lo. Esses provedores geralmente atuam como nossos
+          processadores de dados (provedores de serviço).</li>
+        <li data-translate="sharingServiceProviders"><strong>Provedores de Serviços:</strong> Podemos compartilhar
+          informações com empresas que nos prestam serviços essenciais, como hospedagem de servidor (ex: Fly.io), banco
+          de dados (ex: Neon/AWS) e envio de e-mails (ex: Gmail SMTP). Esses provedores só têm acesso às informações
+          necessárias para realizar suas tarefas e são obrigados a protegê-las.</li>
+        <li data-translate="sharingLegal"><strong>Requisitos Legais:</strong> Podemos divulgar suas informações se
+          formos obrigados por lei, intimação, ordem judicial ou outro processo legal, ou se acreditarmos de boa fé que
+          a divulgação é necessária para proteger nossos direitos, sua segurança ou a segurança de outros, investigar
+          fraudes ou responder a uma solicitação governamental.</li>
+        <li data-translate="sharingConsent"><strong>Com Seu Consentimento:</strong> Podemos compartilhar suas
+          informações com terceiros para outras finalidades se obtivermos seu consentimento explícito para fazê-lo.</li>
+      </ul>
+    </section>
 
-  <hr>
+    <section id="dataSecurity">
+      <h2 data-translate="securityTitle">5. Segurança dos Dados</h2>
+      <p data-translate="securityText">Implementamos medidas técnicas e organizacionais razoáveis para proteger suas
+        informações contra acesso não autorizado, alteração, divulgação ou destruição. Isso inclui o uso de criptografia
+        para senhas (hashing) e para dados em trânsito (HTTPS/SSL). No entanto, nenhum sistema de segurança é
+        impenetrável, e não podemos garantir segurança absoluta.</p>
+    </section>
 
-  <h2>4. Compartilhamento de Informações</h2>
-  <p>
-    Seus dados pessoais não serão compartilhados com terceiros, exceto nos seguintes casos:
-  </p>
-  <ul>
-    <li>Quando exigido por lei ou por determinação de autoridades competentes.</li>
-    <li>Para proteger nossos direitos legais ou de outros usuários.</li>
-    <li>Para garantir o funcionamento e a segurança do aplicativo.</li>
-  </ul>
-  <p>
-    Em nenhum caso suas informações serão vendidas, alugadas ou transferidas para terceiros para fins comerciais ou
-    publicitários.
-  </p>
+    <section id="dataRetention">
+      <h2 data-translate="retentionTitle">6. Retenção dos Dados</h2>
+      <p data-translate="retentionText1">Reteremos suas informações pessoais enquanto sua conta Monivalt estiver ativa
+        ou conforme necessário para fornecer os serviços a você. Também podemos reter e usar suas informações conforme
+        necessário para cumprir nossas obrigações legais, resolver disputas e aplicar nossos acordos.</p>
+      <p data-translate="retentionText2">Quando você solicita a exclusão da sua conta através do processo descrito em
+        nossa página de <a href="https://marcostfreire.github.io/monivalt-web/delete-account" target="_blank"
+          data-translate="retentionLinkText">Solicitação de Exclusão de Conta</a>, excluiremos seus dados de nossos
+        sistemas ativos de acordo com os detalhes fornecidos nessa página. Note que alguns dados podem permanecer em
+        backups arquivados por um período limitado antes de serem permanentemente excluídos.</p>
+    </section>
 
-  <hr>
+    <section id="userRights">
+      <h2 data-translate="rightsTitle">7. Seus Direitos e Escolhas</h2>
+      <p data-translate="rightsIntro">Você tem certos direitos em relação às suas informações pessoais:</p>
+      <ul>
+        <li data-translate="rightsAccess"><strong>Acesso e Correção:</strong> Você pode acessar e atualizar a maioria
+          das informações da sua conta diretamente no Aplicativo (por exemplo, nome de usuário, foto de perfil).</li>
+        <li data-translate="rightsDeletion"><strong>Exclusão de Conta:</strong> Você pode solicitar a exclusão da sua
+          conta e dos dados associados seguindo as instruções em nossa <a
+            href="https://marcostfreire.github.io/monivalt-web/delete-account" target="_blank"
+            data-translate="rightsDeletionLink">página de exclusão de conta</a> ou entrando em contato conosco.</li>
+        <li data-translate="rightsAdsOptOut"><strong>Opções de Publicidade:</strong> Você pode optar por não receber
+          anúncios personalizados gerenciando as configurações de publicidade no seu dispositivo móvel (geralmente em
+          Configurações > Google > Anúncios, ou Configurações > Privacidade > Publicidade). A assinatura Premium remove
+          os anúncios do aplicativo.</li>
+        <li data-translate="rightsContactsOptOut"><strong>Contatos:</strong> Você pode optar por não conceder permissão
+          de acesso aos seus contatos ou revogar a permissão a qualquer momento nas configurações do seu dispositivo.
+        </li>
+      </ul>
+      <p data-translate="rightsContact">Para exercer outros direitos ou se tiver dúvidas, entre em contato conosco (veja
+        Seção 11).</p>
+    </section>
 
-  <h2>5. Retenção de Dados</h2>
-  <p>
-    Seus dados serão mantidos enquanto sua conta estiver ativa ou pelo tempo necessário para fornecer os serviços
-    descritos nesta política.
-    Caso você opte por excluir sua conta, os dados serão permanentemente removidos de nossos sistemas, exceto se for
-    necessário mantê-los para fins legais ou regulatórios.
-  </p>
+    <section id="thirdParty">
+      <h2 data-translate="thirdPartyTitle">8. Serviços de Terceiros</h2>
+      <p data-translate="thirdPartyIntro">O Aplicativo utiliza serviços de terceiros que podem coletar informações
+        usadas para identificá-lo ou para fornecer funcionalidades essenciais. Esteja ciente das políticas de
+        privacidade desses serviços:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" target="_blank" data-translate="thirdPartyGoogle">Google Play
+            Services & Google Sign-In</a></li>
+        <li><a href="https://support.google.com/admob/answer/6128543" target="_blank"
+            data-translate="thirdPartyAdmob">Google AdMob</a></li>
+        <li><a href="https://firebase.google.com/policies/analytics" target="_blank"
+            data-translate="thirdPartyFirebase">Firebase Analytics</a></li>
+        <!-- Adicione outros se aplicável -->
+      </ul>
+    </section>
 
-  <hr>
+    <section id="children">
+      <h2 data-translate="childrenTitle">9. Privacidade Infantil</h2>
+      <p data-translate="childrenText">Nosso Aplicativo não se destina a crianças menores de 13 anos (ou a idade mínima
+        aplicável em sua jurisdição). Não coletamos intencionalmente informações pessoais de crianças. Se tomarmos
+        conhecimento de que coletamos informações pessoais de uma criança sem o consentimento dos pais, tomaremos
+        medidas para remover essas informações de nossos servidores.</p>
+    </section>
 
-  <h2>6. Seus Direitos</h2>
-  <p>
-    Você tem os seguintes direitos em relação aos seus dados pessoais:
-  </p>
-  <ul>
-    <li>Acessar, corrigir ou atualizar suas informações pessoais a qualquer momento.</li>
-    <li>Solicitar a exclusão da sua conta e dos seus dados.</li>
-    <li>Revogar o consentimento para o uso dos seus dados (caso aplicável).</li>
-    <li>Solicitar esclarecimentos sobre o tratamento de suas informações.</li>
-  </ul>
-  <p>
-    Para exercer qualquer um desses direitos, basta entrar em contato conosco pelo e-mail abaixo.
-  </p>
+    <section id="changes">
+      <h2 data-translate="changesTitle">10. Alterações nesta Política</h2>
+      <p data-translate="changesText">Podemos atualizar nossa Política de Privacidade periodicamente. Notificaremos você
+        sobre quaisquer alterações publicando a nova Política de Privacidade nesta página e atualizando a data da
+        "Última atualização" no topo. É aconselhável revisar esta Política periodicamente para quaisquer alterações.</p>
+    </section>
 
-  <hr>
+    <section id="contact">
+      <h2 data-translate="contactTitle">11. Contato</h2>
+      <p data-translate="contactText">Se você tiver alguma dúvida ou preocupação sobre esta Política de Privacidade ou
+        sobre nossas práticas de dados, entre em contato conosco pelo e-mail:</p>
+      <p><a href="mailto:suporte.monivalt@gmail.com" class="contact-email">suporte.monivalt@gmail.com</a></p>
+    </section>
 
-  <h2>7. Alterações nesta Política de Privacidade</h2>
-  <p>
-    Esta política de privacidade pode ser atualizada periodicamente para refletir mudanças nos nossos serviços ou em
-    requisitos legais. Se houver alguma alteração significativa, você será notificado por meio do aplicativo ou por
-    e-mail.
-  </p>
-  <p>
-    Recomendamos que você revise esta política regularmente para se manter informado sobre como suas informações estão
-    sendo tratadas.
-  </p>
+  </div>
 
-  <hr>
+  <script>
+    const translations = {
+      'pt': {
+        policyTitle: "Política de Privacidade - Monivalt",
+        lastUpdated: "Última atualização: 23 de Abril de 2025",
+        tocTitle: "Navegação Rápida",
+        tocIntro: "1. Introdução",
+        tocDataCollected: "2. Informações que Coletamos",
+        tocDataUsage: "3. Como Usamos Suas Informações",
+        tocDataSharing: "4. Como Compartilhamos Suas Informações",
+        tocDataSecurity: "5. Segurança dos Dados",
+        tocDataRetention: "6. Retenção dos Dados",
+        tocUserRights: "7. Seus Direitos e Escolhas",
+        tocThirdParty: "8. Serviços de Terceiros",
+        tocChildren: "9. Privacidade Infantil",
+        tocChanges: "10. Alterações nesta Política",
+        tocContact: "11. Contato",
+        introTitle: "1. Introdução",
+        introText1: "Bem-vindo ao <strong>Monivalt</strong>! Esta Política de Privacidade descreve como <strong>Quantyra</strong> (\"nós\", \"nosso\" ou \"Desenvolvedor\") coleta, usa, compartilha e protege as informações dos usuários (\"você\") de nosso aplicativo móvel Monivalt (\"Aplicativo\"). Nosso compromisso é proteger sua privacidade e garantir a transparência sobre como seus dados são tratados.",
+        introText2: "Ao usar o Aplicativo, você concorda com a coleta, uso e compartilhamento de suas informações conforme descrito nesta Política de Privacidade.",
+        collectTitle: "2. Informações que Coletamos",
+        collectIntro: "Coletamos diferentes tipos de informações para fornecer e melhorar nosso Aplicativo. Os tipos de dados coletados incluem:",
+        collectPersonalTitle: "Informações Pessoais e de Conta:",
+        collectPersonal1: "<strong>Nome:</strong> Seu nome de usuário ou nome de exibição fornecido no perfil.",
+        collectPersonal2: "<strong>Endereço de E-mail:</strong> Usado para criação da conta, login, recuperação de senha e comunicações essenciais.",
+        collectPersonal3: "<strong>IDs de Usuários:</strong> Um ID interno gerado pelo nosso sistema para sua conta e, se você usar o login social, seu ID do Google.",
+        collectPersonal4: "<strong>Senha (Hash):</strong> Sua senha é armazenada de forma segura usando técnicas de hashing e não pode ser lida por nós.",
+        collectFinancialTitle: "Informações Financeiras (Inseridas por Você):",
+        collectFinancial1: "<strong>Dados de Planejamento e Orçamento:</strong> Nomes de categorias, tipos (receita/despesa), limites de orçamento, nomes e valores de itens/subcategorias planejados, frequência mensal, etc.",
+        collectFinancial2: "<strong>Registros de Transações Reais:</strong> Detalhes dos lançamentos que você registra, como nome, valor, tipo, data/hora.",
+        collectFinancial3: "<strong>Dados de Objetivos/Metas:</strong> Nomes das metas, valores totais e atuais, contribuições, prazos, taxas de juros (se informadas).",
+        collectFinancial4: "<strong>Nota:</strong> O Monivalt não se conecta a instituições bancárias; todas as informações financeiras são inseridas manualmente por você.",
+        collectPurchaseTitle: "Histórico de Compras (Assinatura):",
+        collectPurchase1: "Coletamos e verificamos o token de compra fornecido pelo Google Play para gerenciar seu status de assinatura Premium. Não processamos diretamente pagamentos ou armazenamos detalhes de cartão de crédito.",
+        collectMessagesTitle: "Mensagens:",
+        collectMessages1: "<strong>E-mails:</strong> Coletamos seu e-mail para enviar comunicações necessárias, como recuperação de senha.",
+        collectMessages2: "<strong>Outras Mensagens no App (Opcional):</strong> Mensagens que você envia nos chats de objetivos compartilhados ou em chats diretos com amigos. O uso dessas funcionalidades é opcional.",
+        collectPhotosTitle: "Fotos (Opcional):",
+        collectPhotos1: "Se você optar por fazer upload, coletamos a imagem do seu perfil e imagens associadas aos seus objetivos financeiros.",
+        collectContactsTitle: "Contatos (Opcional):",
+        collectContacts1: "Se você usar a função \"Sincronizar Contatos\" na seção social e conceder permissão, acessaremos informações da sua lista de contatos (como nomes, emails, telefones) para ajudá-lo a encontrar amigos que também usam o Monivalt. Esta coleta é opcional.",
+        collectActivityTitle: "Atividade e Uso do App:",
+        collectActivity1: "<strong>Interações no App:</strong> Informações sobre como você usa o aplicativo, como recursos acessados, botões clicados, progresso em missões e emblemas, reações e votos em posts/enquetes.",
+        collectActivity2: "<strong>Histórico de Pesquisa no App (Opcional):</strong> Termos que você pesquisa na seção social para encontrar outros usuários.",
+        collectActivity3: "<strong>Outro Conteúdo Gerado pelo Usuário:</strong> Posts que você cria no feed social, comentários, nomes que você define para categorias, transações e metas, mensagens de chat.",
+        collectActivity4: "<strong>Outras Ações:</strong> Ações como adicionar amigos, participar de desafios, etc.",
+        collectDeviceTitle: "Identificadores do Dispositivo e Outros IDs:",
+        collectDevice1: "Coletamos identificadores relacionados ao seu dispositivo ou instância do aplicativo, como o ID de Publicidade do Android (GAID) e o ID de Instalação do Firebase. Isso é feito principalmente por meio de serviços de terceiros que utilizamos (veja Seção 8).",
+        usageTitle: "3. Como Usamos Suas Informações",
+        usageIntro: "Utilizamos as informações coletadas para diversas finalidades:",
+        usageFunc: "<strong>Funcionalidade do App:</strong> Para operar e fornecer os recursos principais do Monivalt, como registrar e exibir suas finanças, calcular saldos, acompanhar o progresso das metas, permitir interações sociais (chats, posts, amigos, etc.) e gerenciar sua conta.",
+        usageAccount: "<strong>Gerenciamento de Contas:</strong> Para criar sua conta, permitir o login (incluindo via Google), verificar credenciais e facilitar a recuperação de senha.",
+        usageComms: "<strong>Comunicações:</strong> Para enviar e-mails necessários (como recuperação de senha) ou notificações importantes sobre sua conta ou o serviço.",
+        usageAnalytics: "<strong>Análise:</strong> Para entender como os usuários interagem com o Aplicativo, monitorar o desempenho, diagnosticar problemas técnicos, identificar tendências de uso e melhorar nossos serviços (geralmente usando dados agregados ou anônimos e identificadores via Firebase Analytics).",
+        usageAds: "<strong>Publicidade ou Marketing (Plano Gratuito):</strong> Para exibir anúncios relevantes no aplicativo através de redes como o Google AdMob, utilizando Identificadores de Dispositivo. Usuários Premium não veem anúncios.",
+        usageSecurity: "<strong>Segurança e Conformidade:</strong> Para proteger a segurança do Aplicativo e dos nossos usuários, prevenir fraudes e cumprir obrigações legais.",
+        usagePersonalization: "<strong>Personalização (Limitada):</strong> Para exibir seu nome de usuário e foto de perfil, e permitir que você personalize suas metas com imagens. Não usamos seus dados financeiros para personalização de conteúdo externo.",
+        sharingTitle: "4. Como Compartilhamos Suas Informações",
+        sharingIntro: "Nós <strong>não vendemos</strong> suas informações pessoais. No entanto, podemos compartilhar certas informações com terceiros nas seguintes circunstâncias:",
+        sharingAds: "<strong>Parceiros de Publicidade (Ex: Google AdMob):</strong> Se você utiliza a versão gratuita do Aplicativo, compartilhamos <strong>Identificadores de Dispositivo e outros IDs</strong> com redes de publicidade como o Google AdMob para exibir anúncios relevantes. Você pode ter opções para limitar o rastreamento de anúncios nas configurações do seu dispositivo móvel.",
+        sharingAnalytics: "<strong>Provedores de Análise (Ex: Firebase Analytics):</strong> Compartilhamos dados de uso e identificadores com provedores como o Firebase Analytics, que nos ajudam a entender como o Aplicativo é usado e a aprimorá-lo. Esses provedores geralmente atuam como nossos processadores de dados (provedores de serviço).",
+        sharingServiceProviders: "<strong>Provedores de Serviços:</strong> Podemos compartilhar informações com empresas que nos prestam serviços essenciais, como hospedagem de servidor (ex: Fly.io), banco de dados (ex: Neon/AWS) e envio de e-mails (ex: Gmail SMTP). Esses provedores só têm acesso às informações necessárias para realizar suas tarefas e são obrigados a protegê-las.",
+        sharingLegal: "<strong>Requisitos Legais:</strong> Podemos divulgar suas informações se formos obrigados por lei, intimação, ordem judicial ou outro processo legal, ou se acreditarmos de boa fé que a divulgação é necessária para proteger nossos direitos, sua segurança ou a segurança de outros, investigar fraudes ou responder a uma solicitação governamental.",
+        sharingConsent: "<strong>Com Seu Consentimento:</strong> Podemos compartilhar suas informações com terceiros para outras finalidades se obtivermos seu consentimento explícito para fazê-lo.",
+        securityTitle: "5. Segurança dos Dados",
+        securityText: "Implementamos medidas técnicas e organizacionais razoáveis para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição. Isso inclui o uso de criptografia para senhas (hashing) e para dados em trânsito (HTTPS/SSL). No entanto, nenhum sistema de segurança é impenetrável, e não podemos garantir segurança absoluta.",
+        retentionTitle: "6. Retenção dos Dados",
+        retentionText1: "Reteremos suas informações pessoais enquanto sua conta Monivalt estiver ativa ou conforme necessário para fornecer os serviços a você. Também podemos reter e usar suas informações conforme necessário para cumprir nossas obrigações legais, resolver disputas e aplicar nossos acordos.",
+        retentionText2: "Quando você solicita a exclusão da sua conta através do processo descrito em nossa página de <a href=\"https://marcostfreire.github.io/monivalt-web/delete-account\" target=\"_blank\">Solicitação de Exclusão de Conta</a>, excluiremos seus dados de nossos sistemas ativos de acordo com os detalhes fornecidos nessa página. Note que alguns dados podem permanecer em backups arquivados por um período limitado antes de serem permanentemente excluídos.",
+        retentionLinkText: "Solicitação de Exclusão de Conta", // Included in retentionText2
+        rightsTitle: "7. Seus Direitos e Escolhas",
+        rightsIntro: "Você tem certos direitos em relação às suas informações pessoais:",
+        rightsAccess: "<strong>Acesso e Correção:</strong> Você pode acessar e atualizar a maioria das informações da sua conta diretamente no Aplicativo (por exemplo, nome de usuário, foto de perfil).",
+        rightsDeletion: "<strong>Exclusão de Conta:</strong> Você pode solicitar a exclusão da sua conta e dos dados associados seguindo as instruções em nossa <a href=\"https://marcostfreire.github.io/monivalt-web/delete-account\" target=\"_blank\">página de exclusão de conta</a> ou entrando em contato conosco.",
+        rightsDeletionLink: "página de exclusão de conta", // Included in rightsDeletion
+        rightsAdsOptOut: "<strong>Opções de Publicidade:</strong> Você pode optar por não receber anúncios personalizados gerenciando as configurações de publicidade no seu dispositivo móvel (geralmente em Configurações > Google > Anúncios, ou Configurações > Privacidade > Publicidade). A assinatura Premium remove os anúncios do aplicativo.",
+        rightsContactsOptOut: "<strong>Contatos:</strong> Você pode optar por não conceder permissão de acesso aos seus contatos ou revogar a permissão a qualquer momento nas configurações do seu dispositivo.",
+        rightsContact: "Para exercer outros direitos ou se tiver dúvidas, entre em contato conosco (veja Seção 11).",
+        thirdPartyTitle: "8. Serviços de Terceiros",
+        thirdPartyIntro: "O Aplicativo utiliza serviços de terceiros que podem coletar informações usadas para identificá-lo ou para fornecer funcionalidades essenciais. Esteja ciente das políticas de privacidade desses serviços:",
+        thirdPartyGoogle: "Google Play Services & Google Sign-In",
+        thirdPartyAdmob: "Google AdMob",
+        thirdPartyFirebase: "Firebase Analytics",
+        childrenTitle: "9. Privacidade Infantil",
+        childrenText: "Nosso Aplicativo não se destina a crianças menores de 13 anos (ou a idade mínima aplicável em sua jurisdição). Não coletamos intencionalmente informações pessoais de crianças. Se tomarmos conhecimento de que coletamos informações pessoais de uma criança sem o consentimento dos pais, tomaremos medidas para remover essas informações de nossos servidores.",
+        changesTitle: "10. Alterações nesta Política",
+        changesText: "Podemos atualizar nossa Política de Privacidade periodicamente. Notificaremos você sobre quaisquer alterações publicando a nova Política de Privacidade nesta página e atualizando a data da \"Última atualização\" no topo. É aconselhável revisar esta Política periodicamente para quaisquer alterações.",
+        contactTitle: "11. Contato",
+        contactText: "Se você tiver alguma dúvida ou preocupação sobre esta Política de Privacidade ou sobre nossas práticas de dados, entre em contato conosco pelo e-mail:",
+        toggleButtonText: "Switch to English"
+      },
+      'en': {
+        policyTitle: "Privacy Policy - Monivalt",
+        lastUpdated: "Last updated: April 23, 2025",
+        tocTitle: "Quick Navigation",
+        tocIntro: "1. Introduction",
+        tocDataCollected: "2. Information We Collect",
+        tocDataUsage: "3. How We Use Your Information",
+        tocDataSharing: "4. How We Share Your Information",
+        tocDataSecurity: "5. Data Security",
+        tocDataRetention: "6. Data Retention",
+        tocUserRights: "7. Your Rights and Choices",
+        tocThirdParty: "8. Third-Party Services",
+        tocChildren: "9. Children's Privacy",
+        tocChanges: "10. Changes to This Policy",
+        tocContact: "11. Contact Us",
+        introTitle: "1. Introduction",
+        introText1: "Welcome to <strong>Monivalt</strong>! This Privacy Policy describes how <strong>Quantyra</strong> (\"we\", \"us\", or \"Developer\") collects, uses, shares, and protects user information (\"you\") of our Monivalt mobile application (\"Application\"). Our commitment is to protect your privacy and ensure transparency about how your data is handled.",
+        introText2: "By using the Application, you agree to the collection, use, and sharing of your information as described in this Privacy Policy.",
+        collectTitle: "2. Information We Collect",
+        collectIntro: "We collect different types of information to provide and improve our Application. The types of data collected include:",
+        collectPersonalTitle: "Personal and Account Information:",
+        collectPersonal1: "<strong>Name:</strong> Your username or display name provided in the profile.",
+        collectPersonal2: "<strong>Email Address:</strong> Used for account creation, login, password recovery, and essential communications.",
+        collectPersonal3: "<strong>User IDs:</strong> An internal ID generated by our system for your account and, if you use social login, your Google ID.",
+        collectPersonal4: "<strong>Password (Hash):</strong> Your password is securely stored using hashing techniques and cannot be read by us.",
+        collectFinancialTitle: "Financial Information (Entered by You):",
+        collectFinancial1: "<strong>Planning and Budgeting Data:</strong> Category names, types (income/expense), budget limits, names and values of planned items/subcategories, monthly frequency, etc.",
+        collectFinancial2: "<strong>Actual Transaction Records:</strong> Details of the entries you record, such as name, amount, type, date/time.",
+        collectFinancial3: "<strong>Goals/Targets Data:</strong> Goal names, total and current amounts, contributions, deadlines, interest rates (if provided).",
+        collectFinancial4: "<strong>Note:</strong> Monivalt does not connect to banking institutions; all financial information is manually entered by you.",
+        collectPurchaseTitle: "Purchase History (Subscription):",
+        collectPurchase1: "We collect and verify the purchase token provided by Google Play to manage your Premium subscription status. We do not directly process payments or store credit card details.",
+        collectMessagesTitle: "Messages:",
+        collectMessages1: "<strong>Emails:</strong> We collect your email to send necessary communications, such as password recovery.",
+        collectMessages2: "<strong>Other In-App Messages (Optional):</strong> Messages you send in shared goal chats or direct chats with friends. The use of these features is optional.",
+        collectPhotosTitle: "Photos (Optional):",
+        collectPhotos1: "If you choose to upload, we collect your profile picture and images associated with your financial goals.",
+        collectContactsTitle: "Contacts (Optional):",
+        collectContacts1: "If you use the \"Sync Contacts\" feature in the social section and grant permission, we will access information from your contact list (such as names, emails, phone numbers) to help you find friends who also use Monivalt. This collection is optional.",
+        collectActivityTitle: "App Activity and Usage:",
+        collectActivity1: "<strong>In-App Interactions:</strong> Information about how you use the application, such as features accessed, buttons clicked, progress on missions and badges, reactions, and votes on posts/polls.",
+        collectActivity2: "<strong>In-App Search History (Optional):</strong> Terms you search for in the social section to find other users.",
+        collectActivity3: "<strong>Other User-Generated Content:</strong> Posts you create in the social feed, comments, names you define for categories, transactions, and goals, chat messages.",
+        collectActivity4: "<strong>Other Actions:</strong> Actions such as adding friends, participating in challenges, etc.",
+        collectDeviceTitle: "Device Identifiers and Other IDs:",
+        collectDevice1: "We collect identifiers related to your device or application instance, such as the Android Advertising ID (GAID) and Firebase Installation ID. This is primarily done through third-party services we use (see Section 8).",
+        usageTitle: "3. How We Use Your Information",
+        usageIntro: "We use the information collected for various purposes:",
+        usageFunc: "<strong>App Functionality:</strong> To operate and provide the core features of Monivalt, such as recording and displaying your finances, calculating balances, tracking goal progress, enabling social interactions (chats, posts, friends, etc.), and managing your account.",
+        usageAccount: "<strong>Account Management:</strong> To create your account, enable login (including via Google), verify credentials, and facilitate password recovery.",
+        usageComms: "<strong>Communications:</strong> To send necessary emails (like password recovery) or important notifications about your account or the service.",
+        usageAnalytics: "<strong>Analytics:</strong> To understand how users interact with the Application, monitor performance, diagnose technical issues, identify usage trends, and improve our services (usually using aggregated or anonymized data and identifiers via Firebase Analytics).",
+        usageAds: "<strong>Advertising or Marketing (Free Plan):</strong> To display relevant ads in the application through networks like Google AdMob, using Device Identifiers. Premium users do not see ads.",
+        usageSecurity: "<strong>Security and Compliance:</strong> To protect the security of the Application and our users, prevent fraud, and comply with legal obligations.",
+        usagePersonalization: "<strong>Personalization (Limited):</strong> To display your username and profile picture, and allow you to personalize your goals with images. We do not use your financial data for external content personalization.",
+        sharingTitle: "4. How We Share Your Information",
+        sharingIntro: "We **do not sell** your personal information. However, we may share certain information with third parties under the following circumstances:",
+        sharingAds: "<strong>Advertising Partners (e.g., Google AdMob):</strong> If you use the free version of the Application, we share <strong>Device Identifiers and other IDs</strong> with advertising networks like Google AdMob to display relevant ads. You may have options to limit ad tracking in your mobile device settings.",
+        sharingAnalytics: "<strong>Analytics Providers (e.g., Firebase Analytics):</strong> We share usage data and identifiers with providers like Firebase Analytics, which help us understand how the Application is used and improve it. These providers generally act as our data processors (service providers).",
+        sharingServiceProviders: "<strong>Service Providers:</strong> We may share information with companies that provide essential services to us, such as server hosting (e.g., Fly.io), database management (e.g., Neon/AWS), and email delivery (e.g., Gmail SMTP). These providers only have access to the information necessary to perform their tasks and are obligated to protect it.",
+        sharingLegal: "<strong>Legal Requirements:</strong> We may disclose your information if required by law, subpoena, court order, or other legal process, or if we believe in good faith that disclosure is necessary to protect our rights, your safety, or the safety of others, investigate fraud, or respond to a government request.",
+        sharingConsent: "<strong>With Your Consent:</strong> We may share your information with third parties for other purposes if we obtain your explicit consent to do so.",
+        securityTitle: "5. Data Security",
+        securityText: "We implement reasonable technical and organizational measures to protect your information from unauthorized access, alteration, disclosure, or destruction. This includes using encryption for passwords (hashing) and for data in transit (HTTPS/SSL). However, no security system is impenetrable, and we cannot guarantee absolute security.",
+        retentionTitle: "6. Data Retention",
+        retentionText1: "We will retain your personal information for as long as your Monivalt account is active or as needed to provide you with the services. We may also retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements.",
+        retentionText2: "When you request account deletion through the process described on our <a href=\"https://marcostfreire.github.io/monivalt-web/delete-account\" target=\"_blank\">Account Deletion Request</a> page, we will delete your data from our active systems according to the details provided on that page. Note that some data may remain in archived backups for a limited period before being permanently erased.",
+        retentionLinkText: "Account Deletion Request", // Included in retentionText2
+        rightsTitle: "7. Your Rights and Choices",
+        rightsIntro: "You have certain rights regarding your personal information:",
+        rightsAccess: "<strong>Access and Correction:</strong> You can access and update most of your account information directly within the Application (e.g., username, profile picture).",
+        rightsDeletion: "<strong>Account Deletion:</strong> You can request the deletion of your account and associated data by following the instructions on our <a href=\"https://marcostfreire.github.io/monivalt-web/delete-account\" target=\"_blank\">account deletion page</a> or by contacting us.",
+        rightsDeletionLink: "account deletion page", // Included in rightsDeletion
+        rightsAdsOptOut: "<strong>Advertising Choices:</strong> You can opt-out of personalized advertising by managing the advertising settings on your mobile device (usually under Settings > Google > Ads, or Settings > Privacy > Advertising). Subscribing to Premium removes ads from the application.",
+        rightsContactsOptOut: "<strong>Contacts:</strong> You can choose not to grant permission to access your contacts or revoke the permission at any time through your device settings.",
+        rightsContact: "To exercise other rights or if you have questions, please contact us (see Section 11).",
+        thirdPartyTitle: "8. Third-Party Services",
+        thirdPartyIntro: "The Application uses third-party services that may collect information used to identify you or provide essential functionality. Be aware of the privacy policies of these services:",
+        thirdPartyGoogle: "Google Play Services & Google Sign-In",
+        thirdPartyAdmob: "Google AdMob",
+        thirdPartyFirebase: "Firebase Analytics",
+        childrenTitle: "9. Children's Privacy",
+        childrenText: "Our Application is not intended for children under the age of 13 (or the applicable minimum age in your jurisdiction). We do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child without parental consent, we will take steps to remove that information from our servers.",
+        changesTitle: "10. Changes to This Policy",
+        changesText: "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last updated\" date at the top. You are advised to review this Policy periodically for any changes.",
+        contactTitle: "11. Contact Us",
+        contactText: "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us via email:",
+        toggleButtonText: "Mudar para Português"
+      }
+    };
 
-  <h2>8. Contato</h2>
-  <p>
-    Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade ou sobre o tratamento dos seus dados
-    pessoais, entre em contato conosco em:
-  </p>
-  <p>
-    <strong>suporte.monivalt@gmail.com</strong>
-  </p>
+    let currentLanguage = localStorage.getItem('preferredLanguage') || 'pt';
+    const toggleButton = document.getElementById('language-toggle-button');
+    const contentDiv = document.getElementById('content');
 
-  <hr>
+    function setLanguage(lang) {
+      if (!translations[lang]) return; // Safety check
 
-  <p>
-    ✅ Ao continuar utilizando nosso aplicativo, você concorda com os termos desta Política de Privacidade.
-  </p>
+      currentLanguage = lang;
+      localStorage.setItem('preferredLanguage', lang);
+      document.documentElement.lang = lang; // Update html lang attribute
+      document.title = translations[lang].policyTitle; // Update page title
+
+      // Update button text
+      toggleButton.textContent = translations[lang].toggleButtonText;
+
+      // Update all elements with data-translate attribute
+      const elements = contentDiv.querySelectorAll('[data-translate]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (key && translations[lang][key]) {
+          // Update text content, preserving links within translated strings
+          if (el.tagName.toLowerCase() === 'a' && el.hasAttribute('href')) {
+            // For links, only update the text part if needed, keep href
+            // This assumes the link text itself has a translation key if needed
+            // Example: <a href="..." data-translate="myLinkKey">Old Text</a>
+            // If the key exists, update innerHTML: el.innerHTML = translations[lang][key];
+            // If the key is for the parent paragraph containing the link:
+            if (el.parentElement && el.parentElement.hasAttribute('data-translate')) {
+              const parentKey = el.parentElement.getAttribute('data-translate');
+              if (parentKey && translations[lang][parentKey]) {
+                // Update parent's innerHTML which includes the link
+                el.parentElement.innerHTML = translations[lang][parentKey];
+              }
+            }
+          } else {
+            el.innerHTML = translations[lang][key]; // Use innerHTML for most elements
+          }
+        }
+      });
+
+      // Special handling for TOC links to update their text
+      const tocLinks = contentDiv.querySelectorAll('.toc a[data-translate]');
+      tocLinks.forEach(link => {
+        const key = link.getAttribute('data-translate');
+        if (key && translations[lang][key]) {
+          link.textContent = translations[lang][key]; // Only update text content for TOC links
+        }
+      });
+    }
+
+
+    function toggleLanguage() {
+      const newLang = currentLanguage === 'pt' ? 'en' : 'pt';
+      setLanguage(newLang);
+    }
+
+    // Initial load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add click listeners to TOC links for smooth scrolling
+      document.querySelectorAll('.toc a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Set the language after setting up listeners
+      setLanguage(currentLanguage);
+    });
+
+  </script>
+
 </body>
 
 </html>
